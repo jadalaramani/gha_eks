@@ -7,9 +7,6 @@ Below is **the complete, end-to-end setup** to:
 
 ### ✅ Connect kubectl and verify cluster
 
-This is the **FULL WORKING SOLUTION**—all steps together.
-
----
 
 # ⭐ **PHASE 1 — Setup Self-Hosted GitHub Runner (EC2)**
 
@@ -53,8 +50,8 @@ mkdir actions-runner && cd actions-runner
 Download:
 
 ```bash
-curl -o actions-runner-linux-x64.tar.gz -L https://github.com/actions/runner/releases/latest/download/actions-runner-linux-x64-2.329.0.tar.gz
-tar xzf actions-runner-linux-x64.tar.gz
+curl -o actions-runner-linux-x64-2.329.0.tar.gz -L https://github.com/actions/runner/releases/download/v2.329.0/actions-runner-linux-x64-2.329.0.tar.gz
+tar xzf ./actions-runner-linux-x64-2.329.0.tar.gz
 ```
 
 ---
