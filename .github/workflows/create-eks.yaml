@@ -1,0 +1,32 @@
+name: Create EKS Cluster
+
+on:
+  workflow_dispatch:
+
+jobs:
+  create-eks:
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+
+      - name: Create EKS Cluster
+        run: |
+          eksctl create cluster \
+            --name demo-eks \
+            --region ap-south-1 \
+            --node-type t3.medium \
+            --nodes 2 \
+            --nodes-min 2 \
+            --nodes-max 4
+
+      - name: Update Kubeconfig
+        run: |
+          aws eks update-kubeconfig --name demo-eks --region ap-south-1
+
+      - name: Test Cluster
+        run: |
+          kubectl get nodes
+          kubectl get pods -A
+          kubectl get svc -A
